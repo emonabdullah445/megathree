@@ -11,7 +11,7 @@ export default function Home({ adminId, posterId }) {
     <div className="container pt-[35px] flex flex-col items-center overflow-x-hidden">
       {showSecurityAlert ? (
         <div className="max-w-[400px] w-full px-4 mb-10">
-          <div className="bg-white rounded-lg shadow-around-blue p-6 flex flex-col items-center text-center">
+          <div className="bg-white rounded-lg shadow-around-blue lg:shadow-none p-6 flex flex-col items-center text-center">
             <div className="mb-4">
               <img
                 src="/images/devilgirl.png"
